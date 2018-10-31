@@ -47,7 +47,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private
 RUN a2enmod rewrite
 RUN a2enmod ssl
 
-# copy source files and run composer
+# copy source files and config file
 COPY . $APP_HOME
 COPY .env.local $APP_HOME/.env
 
