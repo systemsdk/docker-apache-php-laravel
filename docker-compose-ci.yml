@@ -18,16 +18,16 @@ services:
         - mysql
 
     mysql:
-      image: mysql:5.7
+      image: mysql:8.0
       container_name: mysql
-      #command: --default-authentication-plugin=mysql_native_password
+      command: --default-authentication-plugin=mysql_native_password
       environment:
         - MYSQL_ROOT_PASSWORD=secret
         - MYSQL_DATABASE=laravel
       expose:
-        - "33061"
+        - "33071"
       ports:
-        - "33061:3306"
+        - "33071:3306"
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
         - ./docker/development/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
