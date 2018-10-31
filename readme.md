@@ -18,12 +18,12 @@ Note: OS recommendation - Linux Ubuntu based.
 3. MySQL 8
 4. Laravel 5.7
 
-## Setting up
+## Setting up DEV environment
 1. Build and start the image from your terminal:
     ```
     docker-compose build
     make start
-    make env-local
+    make composer-install
     ```
 2. Add domain to local 'hosts' file:
     ```
