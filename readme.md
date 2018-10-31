@@ -1,6 +1,8 @@
 # PHP Laravel environment
 Docker environment required to run Laravel (based on official php and mysql docker hub repositories).
 
+[![CircleCI](https://circleci.com/gh/dimadeush/docker-apache-php-laravel.svg?style=svg)](https://circleci.com/gh/dimadeush/docker-apache-php-laravel)
+
 [Source code](https://github.com/dimadeush/docker-apache-php-laravel.git)
 
 ## Requirements
