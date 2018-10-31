@@ -37,7 +37,6 @@ class DbWaitDatabase extends Command
                 $db::select('SHOW TABLES');
                 return 0;
             } catch (QueryException $e) {
-                echo $e->getMessage();
                 sleep(self::WAIT_SLEEP_TIME);
                 continue;
             }
