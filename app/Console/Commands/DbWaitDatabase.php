@@ -32,7 +32,7 @@ class DbWaitDatabase extends Command
      */
     public function handle(DB $db)
     {
-        for ($i = 0; $i < 100; $i += self::WAIT_SLEEP_TIME) {
+        for ($i = 0; $i < 300; $i += self::WAIT_SLEEP_TIME) {
             try {
                 $db::select('SHOW TABLES');
                 return 0;
