@@ -14,7 +14,7 @@ services:
       ports:
         - "80:80"
         - "443:443"
-      links:
+      depends_on:
         - mysql
 
     mysql:
