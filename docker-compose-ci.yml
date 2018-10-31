@@ -5,15 +5,11 @@ services:
     laravel:
       image: laravel:latest
       build:
-        context: .
+        context: ./
         dockerfile: ./docker/development/Dockerfile
       container_name: laravel
-      expose:
-        - "80"
-        - "443"
       ports:
-        - "80:80"
-        - "443:443"
+        - "8084:80"
       links:
         - mysql
 
@@ -25,7 +21,7 @@ services:
         - MYSQL_ROOT_PASSWORD=secret
         - MYSQL_DATABASE=laravel
       ports:
-        - "33061:3306"
+        - "33071:3306"
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
         - ./docker/development/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql

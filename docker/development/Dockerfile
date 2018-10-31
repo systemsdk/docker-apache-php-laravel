@@ -49,6 +49,7 @@ RUN a2enmod ssl
 
 # copy source files and run composer
 COPY . $APP_HOME
+COPY .env.local $APP_HOME/.env
 
 # set working dir
 WORKDIR /var/www/laravel
