@@ -5,7 +5,6 @@ jobs:
     machine: true
     branches:
         ignore:
-          - master
           - develop
     steps:
       - checkout
@@ -20,7 +19,6 @@ jobs:
           command: |
             make wait-for-db
             make drop-migrate
-            make migrate
             make seed
 
       - run:
