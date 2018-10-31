@@ -32,17 +32,23 @@ RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 # put apache and php configs for Laravel
 COPY ./docker/hosts/laravel.conf /etc/apache2/sites-available/laravel.conf
-RUN a2dissite 000-default.conf && a2ensite laravel.conf
+COPY ./docker/hosts/laravel-ssl.conf /etc/apache2/sites-available/laravel-ssl.conf
+RUN a2dissite 000-default.conf && a2ensite laravel.conf && a2ensite laravel-ssl
 COPY ./docker/production/php.ini /usr/local/etc/php/php.ini
+
+# generate certificates. TODO: change it
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"
 
 # enable apache modules
 RUN a2enmod rewrite
+RUN a2enmod ssl
 
-# copy source files and run composer
+# copy source files and config file
 COPY . $APP_HOME
+COPY .env.prod $APP_HOME/.env
 
 # set working dir
-WORKDIR /var/www/laravel
+WORKDIR $APP_HOME
 
 # install all PHP dependencies
 RUN composer install --no-interaction --no-progress --no-dev

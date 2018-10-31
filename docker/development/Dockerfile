@@ -52,7 +52,7 @@ COPY . $APP_HOME
 COPY .env.local $APP_HOME/.env
 
 # set working dir
-WORKDIR /var/www/laravel
+WORKDIR $APP_HOME
 
 # install all PHP dependencies
 RUN composer install --no-interaction --no-progress
