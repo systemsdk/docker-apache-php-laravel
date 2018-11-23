@@ -34,6 +34,9 @@ env-prod:
 ssh:
 	@docker-compose $(project) exec laravel bash
 
+ssh-supervisord:
+	@docker-compose $(project) exec supervisord bash
+
 exec:
 	@docker-compose $(project) exec laravel $$cmd
 

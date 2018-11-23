@@ -10,6 +10,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       libxml2 \
       libxml2-dev \
       libreadline-dev \
+      supervisor \
+      cron \
     && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-install \
@@ -39,6 +41,12 @@ COPY ./docker/hosts/laravel.conf /etc/apache2/sites-available/laravel.conf
 COPY ./docker/hosts/laravel-ssl.conf /etc/apache2/sites-available/laravel-ssl.conf
 RUN a2dissite 000-default.conf && a2ensite laravel.conf && a2ensite laravel-ssl
 COPY ./docker/development/php.ini /usr/local/etc/php/php.ini
+
+# add supervisor
+RUN mkdir -p /var/log/supervisor
+COPY --chown=root:root ./docker/other/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY --chown=root:root ./docker/other/cron /var/spool/cron/crontabs/root
+RUN chmod 0600 /var/spool/cron/crontabs/root
 
 # generate certificates
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"

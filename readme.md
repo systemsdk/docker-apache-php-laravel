@@ -62,6 +62,7 @@ Note: OS recommendation - Linux Ubuntu based.
     make stop
     make restart
     make ssh
+    make ssh-supervisord
     make composer-install
     make composer-update
     make info

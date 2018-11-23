@@ -18,6 +18,21 @@ services:
         - .:/var/www/laravel
       depends_on:
         - mysql
+      links:
+        - mysql
+
+    supervisord:
+      image: laravel:latest
+      build:
+        context: .
+        dockerfile: ./docker/development/Dockerfile
+      container_name: supervisord
+      user: root
+      depends_on:
+        - mysql
+      links:
+        - mysql
+      command: ["/usr/bin/supervisord"]
 
     mysql:
       image: mysql:8.0
@@ -26,8 +41,6 @@ services:
       environment:
         - MYSQL_ROOT_PASSWORD=secret
         - MYSQL_DATABASE=laravel
-      expose:
-        - "33061"
       ports:
         - "33061:3306"
       volumes:
