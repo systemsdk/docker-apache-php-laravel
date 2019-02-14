@@ -10,11 +10,12 @@ Docker environment required to run Laravel (based on official php and mysql dock
 * Docker compose version 1.22 or later
 * An editor or IDE
 * MySQL Workbench
+
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components:
 1. Apache 2.4
-2. PHP 7.2 (Apache handler)
+2. PHP 7.3 (Apache handler)
 3. MySQL 8
 4. Laravel 5.7
 

@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/laravel
+    working_directory: ~/html
     machine: true
     branches:
         ignore:

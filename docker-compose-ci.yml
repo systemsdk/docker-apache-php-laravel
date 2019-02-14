@@ -6,7 +6,11 @@ services:
       image: laravel:latest
       build:
         context: .
-        dockerfile: ./docker/development/Dockerfile
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.testing"
+        dockerfile: ./Dockerfile
       container_name: laravel
       expose:
         - "80"
@@ -23,7 +27,11 @@ services:
       image: laravel:latest
       build:
         context: .
-        dockerfile: ./docker/development/Dockerfile
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.testing"
+        dockerfile: ./Dockerfile
       container_name: supervisord
       user: root
       depends_on:

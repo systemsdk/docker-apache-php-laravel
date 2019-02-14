@@ -6,7 +6,11 @@ services:
       image: laravel:latest
       build:
         context: .
-        dockerfile: ./docker/development/Dockerfile
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.local"
+        dockerfile: ./Dockerfile
       container_name: laravel
       expose:
         - "80"
@@ -15,7 +19,7 @@ services:
         - "80:80"
         - "443:443"
       volumes:
-        - .:/var/www/laravel
+        - .:/var/www/html
       depends_on:
         - mysql
       links:
@@ -25,7 +29,11 @@ services:
       image: laravel:latest
       build:
         context: .
-        dockerfile: ./docker/development/Dockerfile
+        args:
+          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          - "BUILD_ARGUMENT_ENV_FILE=.env.local"
+        dockerfile: ./Dockerfile
       container_name: supervisord
       user: root
       depends_on:
