@@ -7,9 +7,8 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_ENV=test"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
-          - "BUILD_ARGUMENT_ENV_FILE=.env.testing"
         dockerfile: ./Dockerfile
       container_name: laravel
       expose:
@@ -28,9 +27,8 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_APP_ENV=development"
+          - "BUILD_ARGUMENT_ENV=test"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
-          - "BUILD_ARGUMENT_ENV_FILE=.env.testing"
         dockerfile: ./Dockerfile
       container_name: supervisord
       user: root
@@ -51,4 +49,4 @@ services:
         - "33061:3306"
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
-        - ./docker/development/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+        - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql

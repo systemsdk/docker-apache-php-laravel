@@ -7,9 +7,8 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_APP_ENV=production"
+          - "BUILD_ARGUMENT_ENV=prod"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
-          - "BUILD_ARGUMENT_ENV_FILE=.env.prod"
         dockerfile: ./Dockerfile
       container_name: laravel
       expose:
@@ -28,9 +27,8 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_APP_ENV=production"
+          - "BUILD_ARGUMENT_ENV=prod"
           - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
-          - "BUILD_ARGUMENT_ENV_FILE=.env.prod"
         dockerfile: ./Dockerfile
       container_name: supervisord
       user: root

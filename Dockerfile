@@ -3,17 +3,16 @@ FROM php:7.3-apache
 # set main params
 ARG BUILD_ARGUMENT_DEBUG_ENABLED=false
 ENV DEBUG_ENABLED=$BUILD_ARGUMENT_DEBUG_ENABLED
-ARG BUILD_ARGUMENT_APP_ENV=development
-ENV APP_ENV=$BUILD_ARGUMENT_APP_ENV
-ARG BUILD_ARGUMENT_ENV_FILE=.env.local
-ENV ENV_FILE=$BUILD_ARGUMENT_ENV_FILE
+ARG BUILD_ARGUMENT_ENV=dev
+ENV ENV=$BUILD_ARGUMENT_ENV
 ENV APP_HOME /var/www/html
 
 # check environment
-RUN if [ "$BUILD_ARGUMENT_APP_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_APP_ENV in docker build-args like --build-arg BUILD_ARGUMENT_APP_ENV=development" && exit 2; \
-    elif [ "$BUILD_ARGUMENT_APP_ENV" = "development" ]; then echo "Building development environment."; \
-    elif [ "$BUILD_ARGUMENT_APP_ENV" = "production" ]; then echo "Building production environment."; \
-    else echo "Set correct BUILD_ARGUMENT_APP_ENV in docker build-args like --build-arg BUILD_ARGUMENT_APP_ENV=development. Available choices are development,production." && exit 2; \
+RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
+    elif [ "$BUILD_ARGUMENT_ENV" = "dev" ]; then echo "Building development environment."; \
+    elif [ "$BUILD_ARGUMENT_ENV" = "test" ]; then echo "Building test environment."; \
+    elif [ "$BUILD_ARGUMENT_ENV" = "prod" ]; then echo "Building production environment."; \
+    else echo "Set correct BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev. Available choices are dev,test,prod." && exit 2; \
     fi
 
 # install all the dependencies and enable PHP modules
@@ -55,7 +54,7 @@ RUN chown -R www-data:www-data $APP_HOME
 COPY ./docker/hosts/laravel.conf /etc/apache2/sites-available/laravel.conf
 COPY ./docker/hosts/laravel-ssl.conf /etc/apache2/sites-available/laravel-ssl.conf
 RUN a2ensite laravel.conf && a2ensite laravel-ssl
-COPY ./docker/$BUILD_ARGUMENT_APP_ENV/php.ini /usr/local/etc/php/php.ini
+COPY ./docker/$BUILD_ARGUMENT_ENV/php.ini /usr/local/etc/php/php.ini
 
 # enable apache modules
 RUN a2enmod rewrite
@@ -63,8 +62,8 @@ RUN a2enmod ssl
 
 # install Xdebug in case development environment
 COPY ./docker/other/do_we_need_xdebug.sh /tmp/
-COPY ./docker/development/xdebug.ini /tmp/
-RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh $BUILD_ARGUMENT_APP_ENV
+COPY ./docker/dev/xdebug.ini /tmp/
+RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
@@ -76,7 +75,7 @@ COPY --chown=root:root ./docker/other/cron /var/spool/cron/crontabs/root
 RUN chmod 0600 /var/spool/cron/crontabs/root
 
 # generate certificates
-# TODO: change it and make additional logic for prodaction environment
+# TODO: change it and make additional logic for production environment
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"
 
 # set working directory
@@ -89,10 +88,10 @@ USER www-data
 
 # copy source files and config file
 COPY --chown=www-data:www-data . $APP_HOME/
-COPY --chown=www-data:www-data $ENV_FILE $APP_HOME/.env
+COPY --chown=www-data:www-data .env.$ENV $APP_HOME/.env
 
 # install all PHP dependencies
-RUN if [ "$BUILD_ARGUMENT_APP_ENV" = "development" ]; then composer install --no-interaction --no-progress; \
+RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then composer install --no-interaction --no-progress; \
     else composer install --no-interaction --no-progress --no-dev; \
     fi
 
