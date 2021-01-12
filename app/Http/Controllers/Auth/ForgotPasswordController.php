@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
 {
+    // @codingStandardsIgnoreStart
+    use SendsPasswordResetEmails;
+    // @codingStandardsIgnoreEnd
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -19,6 +23,4 @@ class ForgotPasswordController extends Controller
     | your application to your users. Feel free to explore this trait.
     |
     */
-
-    use SendsPasswordResetEmails;
 }
