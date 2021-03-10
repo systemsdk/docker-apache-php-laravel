@@ -1,9 +1,9 @@
-version: '3'
+version: '3.5'
 
 services:
 
     laravel: &laravel-template
-      image: laravel:latest
+      image: ${COMPOSE_PROJECT_NAME}_laravel:latest
       build:
         context: .
         args:
@@ -21,8 +21,8 @@ services:
         - .:/var/www/html
       depends_on:
         - mysql
-      links:
-        - mysql
+      networks:
+        - laravel
 
     ### Cron tasks
     supervisord:
@@ -44,3 +44,9 @@ services:
       volumes:
         - ./storage/mysql-data:/var/lib/mysql
         - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      networks:
+        - laravel
+
+networks:
+  laravel:
+    name: laravel
