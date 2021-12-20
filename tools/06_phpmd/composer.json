@@ -3,12 +3,12 @@
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"phpmd/phpmd": "dev-master",
+		"phpmd/phpmd": "2.11.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
-			"php": "7.4.0"
+			"php": "8.0.0"
 		},
 		"preferred-install": {
 			"*": "dist"
