@@ -1,5 +1,5 @@
 {
-	"name": "dimadeush/docker-nginx-php-laravel-tools",
+	"name": "systemsdk/docker-nginx-php-laravel-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
@@ -13,6 +13,9 @@
 		"preferred-install": {
 			"*": "dist"
 		},
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
