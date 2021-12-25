@@ -11,7 +11,6 @@
 		"MySQL"
 	],
 	"homepage": "https://github.com/systemsdk/docker-apache-php-laravel",
-	"version": "1.0.0",
 	"license": "MIT",
 	"authors": [
 		{

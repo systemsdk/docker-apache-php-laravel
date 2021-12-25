@@ -4,6 +4,9 @@ Docker environment required to run Laravel (based on official php and mysql dock
 [![Actions Status](https://github.com/systemsdk/docker-apache-php-laravel/workflows/Laravel%20App/badge.svg)](https://github.com/systemsdk/docker-apache-php-laravel/actions)
 [![CircleCI](https://circleci.com/gh/systemsdk/docker-apache-php-laravel.svg?style=svg)](https://circleci.com/gh/systemsdk/docker-apache-php-laravel)
 [![Coverage Status](https://coveralls.io/repos/github/systemsdk/docker-apache-php-laravel/badge.svg)](https://coveralls.io/github/systemsdk/docker-apache-php-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/systemsdk/docker-apache-php-laravel)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
+[![Latest Stable Version](https://img.shields.io/packagist/v/systemsdk/docker-apache-php-laravel)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [Source code](https://github.com/systemsdk/docker-apache-php-laravel.git)
 
@@ -15,62 +18,21 @@ Docker environment required to run Laravel (based on official php and mysql dock
 
 Note: OS recommendation - Linux Ubuntu based.
 
-## Components:
+## Components
 1. Apache 2.4
 2. PHP 8.0 (Apache handler)
 3. MySQL 8
 4. Laravel 8
 
-## Setting up PROD environment
-1.Clone this repository from GitHub.
-
-2.Edit docker-compose-prod.yml and set necessary user/password for MySQL.
-
-Note: Delete storage/mysql-data folder if it is exist.
-
-3.Edit env.prod and set necessary user/password for MySQL.
-
-4.Build, start and install the docker images from your terminal:
-```bash
-make build-prod
-make start-prod
-```
-
-5.Make sure that you have installed migrations:
-```bash
-make migrate-no-test
-```
-
-6.Set key for application:
-```bash
-make key-generate
-```
-
-## Setting up STAGING environment
-1.Clone this repository from GitHub.
-
-Note: Delete storage/mysql-data folder if it is exist.
-
-2.Build, start and install the docker images from your terminal:
-```bash
-make build-staging
-make start-staging
-```
-
-3.Make sure that you have installed migrations:
-```bash
-make migrate-no-test
-```
-
-4.Set key for application:
-```bash
-make key-generate
-```
-
 ## Setting up DEV environment
-1.Clone this repository from GitHub.
+1.You can clone this repository from GitHub or install via composer.
 
 Note: Delete storage/mysql-data folder if it is exist.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-apache-php-laravel example-app
+```
 
 2.Add domain to local 'hosts' file:
 ```bash
@@ -98,18 +60,74 @@ make composer-install
 make env-dev
 ```
 
-5.Set key for application:
-```bash
-make key-generate
-```
-
-6.Make sure that you have installed migrations/seeds:
+5.Make sure that you have installed migrations/seeds:
 ```bash
 make migrate
 make seed
 ```
 
-7.In order to use this application, please open in your browser next url: [http://localhost](http://localhost).
+6.Set key for application:
+```bash
+make key-generate
+```
+
+7.Check and open in your browser next url: [http://localhost](http://localhost).
+
+## Setting up STAGING environment locally
+1.You can clone this repository from GitHub or install via composer.
+
+Note: Delete storage/mysql-data folder if it is exist.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-apache-php-laravel example-app
+```
+
+2.Build, start and install the docker images from your terminal:
+```bash
+make build-staging
+make start-staging
+```
+
+3.Make sure that you have installed migrations:
+```bash
+make migrate-no-test
+```
+
+4.Set key for application:
+```bash
+make key-generate
+```
+
+## Setting up PROD environment locally
+1.You can clone this repository from GitHub or install via composer.
+
+Note: Delete storage/mysql-data folder if it is exist.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-apache-php-laravel example-app
+```
+
+2.Edit docker-compose-prod.yml and set necessary user/password for MySQL.
+
+3.Edit env.prod and set necessary user/password for MySQL.
+
+4.Build, start and install the docker images from your terminal:
+```bash
+make build-prod
+make start-prod
+```
+
+5.Make sure that you have installed migrations:
+```bash
+make migrate-no-test
+```
+
+6.Set key for application:
+```bash
+make key-generate
+```
 
 ## Getting shell to container
 After application will start (`make start`) and in order to get shell access inside laravel container you can run following command:
@@ -236,3 +254,8 @@ Notes: Please see more commands in Makefile
 4. Iterate as needed.
 5. Make sure that "All checks have passed" on CircleCI(or another one in case you are not using CircleCI) and status is green.
 6. When PR is approved, it will be squashed & merged, into `develop` and later merged into `release/{No}` for deployment.
+
+Note: You can find git flow detail example [here](https://danielkummer.github.io/git-flow-cheatsheet).
+
+## License
+[The MIT License (MIT)](LICENSE)
