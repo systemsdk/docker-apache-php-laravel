@@ -4,8 +4,8 @@ Docker environment required to run Laravel (based on official php and mysql dock
 [![Actions Status](https://github.com/systemsdk/docker-apache-php-laravel/workflows/Laravel%20App/badge.svg)](https://github.com/systemsdk/docker-apache-php-laravel/actions)
 [![CircleCI](https://circleci.com/gh/systemsdk/docker-apache-php-laravel.svg?style=svg)](https://circleci.com/gh/systemsdk/docker-apache-php-laravel)
 [![Coverage Status](https://coveralls.io/repos/github/systemsdk/docker-apache-php-laravel/badge.svg)](https://coveralls.io/github/systemsdk/docker-apache-php-laravel)
-[![Total Downloads](https://img.shields.io/packagist/dt/systemsdk/docker-apache-php-laravel)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
-[![Latest Stable Version](https://img.shields.io/packagist/v/systemsdk/docker-apache-php-laravel)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
+[![Latest Stable Version](https://poser.pugx.org/systemsdk/docker-apache-php-laravel/v)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
+[![Total Downloads](https://poser.pugx.org/systemsdk/docker-apache-php-laravel/downloads)](https://packagist.org/packages/systemsdk/docker-apache-php-laravel)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [Source code](https://github.com/systemsdk/docker-apache-php-laravel.git)
