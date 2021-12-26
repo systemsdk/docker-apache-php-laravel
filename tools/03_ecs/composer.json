@@ -1,5 +1,5 @@
 {
-	"name": "systemsdk/docker-nginx-php-laravel-tools",
+	"name": "systemsdk/docker-apache-php-laravel-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
