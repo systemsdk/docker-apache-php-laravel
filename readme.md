@@ -20,9 +20,9 @@ Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
 1. Apache 2.4
-2. PHP 8.0 (Apache handler)
+2. PHP 8 (Apache handler)
 3. MySQL 8
-4. Laravel 8
+4. Laravel 9
 
 ## Setting up DEV environment
 1.You can clone this repository from GitHub or install via composer.
@@ -223,7 +223,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 8](https://laravel.com)
+* [Laravel 9](https://laravel.com)
 * [laravel-migrations-organiser](https://github.com/JayBizzle/Laravel-Migrations-Organiser)
 * [phpunit](https://github.com/sebastianbergmann/phpunit)
 * [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
