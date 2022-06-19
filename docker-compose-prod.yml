@@ -7,8 +7,9 @@ services:
       build:
         context: .
         args:
-          - "BUILD_ARGUMENT_ENV=prod"
-          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+          BUILD_ARGUMENT_ENV: prod
+          HOST_UID: ${HOST_UID}
+          HOST_GID: ${HOST_GID}
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_laravel
       restart: always
@@ -16,8 +17,8 @@ services:
         - 80
         - 443
       ports:
-        - 80:80
-        - 443:443
+        - "80:80"
+        - "443:443"
       depends_on:
         - mysql
       networks:
@@ -37,10 +38,10 @@ services:
       restart: always
       command: --default-authentication-plugin=mysql_native_password
       environment:
-        - MYSQL_ROOT_PASSWORD=secret
-        - MYSQL_DATABASE=laravel
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: laravel
       volumes:
-        - ./storage/mysql-data:/var/lib/mysql
+        - ./storage/mysql-data:/var/lib/mysql:delegated
       networks:
         - laravel
 
