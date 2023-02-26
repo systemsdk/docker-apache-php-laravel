@@ -22,7 +22,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Apache 2.4
 2. PHP 8.2 (Apache handler)
 3. MySQL 8
-4. Laravel 9
+4. Laravel 10
 
 ## Setting up Docker and docker-compose
 1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
@@ -235,7 +235,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 9](https://laravel.com)
+* [Laravel 10](https://laravel.com)
 * [laravel-migrations-organiser](https://github.com/JayBizzle/Laravel-Migrations-Organiser)
 * [phpunit](https://github.com/sebastianbergmann/phpunit)
 * [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
