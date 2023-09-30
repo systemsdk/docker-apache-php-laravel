@@ -32,7 +32,7 @@ Note: OS recommendation - Linux Ubuntu based.
 
 Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
 
-Note 2: If you are using docker desktop for MacOS 12.2 or later - please enable [virtiofs](https://www.docker.com/blog/speed-boost-achievement-unlocked-on-docker-desktop-4-6-for-mac/) for performance.
+Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable [virtiofs](https://www.docker.com/blog/speed-boost-achievement-unlocked-on-docker-desktop-4-6-for-mac/) for performance (enabled by default since Docker Desktop v4.22).
 
 ## Setting up DEV environment
 1.You can clone this repository from GitHub or install via composer.
@@ -157,15 +157,13 @@ Note 2: Please use `exit` command in order to return from container's shell to l
 ## Building containers
 In case you edited Dockerfile or other environment configuration you'll need to build containers again using next commands:
 ```bash
-make stop
+make down
 make build
 make start
 ```
-Note 1: Please use next command if you need to build staging environment `make build-staging` instead `make build`.
+Note: Please use environment-specific commands if you need to build test/staging/prod environment, more details can be found using help `make help`.
 
-Note 2: Please use next command if you need to build prod environment `make build-prod` instead `make build`.
-
-## Start and stop environment
+## Start and stop environment containers
 Please use next make commands in order to start and stop environment:
 ```bash
 make start
@@ -174,6 +172,13 @@ make stop
 Note 1: For staging environment need to be used next make commands: `make start-staging`, `make stop-staging`.
 
 Note 2: For prod environment need to be used next make commands: `make start-prod`, `make stop-prod`.
+
+## Stop and remove environment containers, networks
+Please use next make commands in order to stop and remove environment containers, networks:
+```bash
+make down
+```
+Note: Please use environment-specific commands if you need to stop and remove test/staging/prod environment, more details can be found using help `make help`.
 
 ## Additional main command available
 ```bash
@@ -191,6 +196,11 @@ make stop
 make stop-test
 make stop-staging
 make stop-prod
+
+make down
+make down-test
+make down-staging
+make down-prod
 
 make restart
 make restart-test
@@ -212,6 +222,7 @@ make composer-update
 make key-generate
 
 make info
+make help
 
 make logs
 make logs-supervisord
