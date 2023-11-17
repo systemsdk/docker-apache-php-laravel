@@ -15,6 +15,7 @@ services:
       container_name: ${COMPOSE_PROJECT_NAME}-laravel
       volumes:
         - ./.git:/var/www/html/.git:cached
+        - ./reports:/var/www/html/reports:delegated
       ports:
         - "${WEB_PORT_HTTP}:80"
         - "${WEB_PORT_SSL}:443"
