@@ -7,13 +7,13 @@
           <option name="path" value="$PROJECT_DIR$/tools/09_composer/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tests" />
-        </Configuration>
-        <Configuration>
           <option name="path" value="$PROJECT_DIR$/tools/01_phpunit/tests" />
         </Configuration>
         <Configuration>
           <option name="path" value="$PROJECT_DIR$/tools/07_phpmetrics/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tests" />
         </Configuration>
       </list>
     </option>
