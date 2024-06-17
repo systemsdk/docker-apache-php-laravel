@@ -22,7 +22,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Apache 2.4
 2. PHP 8.3 (Apache handler)
 3. MySQL 8
-4. Laravel 10
+4. Laravel 11
 5. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker and docker-compose
@@ -251,8 +251,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Laravel 10](https://laravel.com)
-* [laravel-migrations-organiser](https://github.com/JayBizzle/Laravel-Migrations-Organiser)
+* [Laravel 11](https://laravel.com)
 * [phpunit](https://github.com/sebastianbergmann/phpunit)
 * [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 * [scriptsdev](https://github.com/neronmoon/scriptsdev)

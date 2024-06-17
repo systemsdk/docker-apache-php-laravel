@@ -15,6 +15,9 @@
         <Configuration>
           <option name="path" value="$PROJECT_DIR$/tests" />
         </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/07_phpmetrics/tests" />
+        </Configuration>
       </list>
     </option>
   </component>
