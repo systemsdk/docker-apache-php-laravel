@@ -14,6 +14,9 @@
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/07_phpmetrics" />
       </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$/tools/03_ecs" />
+      </PhpSpecSuiteConfiguration>
     </suites>
   </component>
 </project>
