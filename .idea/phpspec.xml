@@ -17,6 +17,9 @@
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/03_ecs" />
       </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$/tools/02_phpstan" />
+      </PhpSpecSuiteConfiguration>
     </suites>
   </component>
 </project>

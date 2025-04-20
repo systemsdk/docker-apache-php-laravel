@@ -22,7 +22,9 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src" isTestSource="true" packagePrefix="PHP_CodeSniffer\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/02_phpstan/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/09_composer/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/10_phpcpd/vendor/systemsdk/phpcpd/src" isTestSource="true" packagePrefix="Systemsdk\PhpCPD\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
@@ -40,10 +42,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-enumerator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/lines-of-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/complexity" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/neronmoon/scriptsdev" />
@@ -140,8 +140,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/cli-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/code-unit" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/comparator" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/complexity" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/diff" />
@@ -176,7 +174,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nette/schema" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/nunomaduro/termwind" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/phpmyadmin/sql-parser" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/phpstan/phpstan" />
       <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/psr/container" />
@@ -377,8 +374,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/ergebnis/json-printer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/ergebnis/json-schema-validator" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/icanhazstring/composer-unused" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/icecave/parity" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/icecave/repr" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/localheinz/diff" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/maglnet/composer-require-checker" />
@@ -398,21 +393,24 @@
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/property-access" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/string" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/type-info" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/validator" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tools/09_composer/vendor/webmozart/glob" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/uri-interfaces" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/02_phpstan/vendor/iamcal/sql-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/05_phpinsights/vendor/marc-mabe/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pail" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/_laravel_idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
