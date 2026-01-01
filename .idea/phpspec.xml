@@ -20,6 +20,9 @@
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/02_phpstan" />
       </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$/tools/06_phpmd" />
+      </PhpSpecSuiteConfiguration>
     </suites>
   </component>
 </project>
