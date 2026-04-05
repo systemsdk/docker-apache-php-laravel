@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.5-apache-bookworm
 
 # set main params
 ARG BUILD_ARGUMENT_ENV=dev
@@ -13,7 +13,6 @@ ARG XDEBUG_CONFIG=main
 ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
 ARG XDEBUG_VERSION=3.5.0
 ENV XDEBUG_VERSION=$XDEBUG_VERSION
-ENV PHP_CS_FIXER_IGNORE_ENV=1
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -49,7 +48,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       pdo_mysql \
       sockets \
       intl \
-      opcache \
       zip \
       bcmath \
     && apt-get install --no-install-recommends -y \
@@ -58,6 +56,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     && rm -rf /var/list/apt/* \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
+
+# Pull the PHP extension installer from the official image
+COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/local/bin/
 
 # disable default site and delete all default files inside APP_HOME
 RUN a2dissite 000-default.conf
@@ -81,9 +82,13 @@ RUN a2enmod rewrite
 RUN a2enmod ssl
 
 # install Xdebug in case dev/test environment
-COPY ./docker/general/do_we_need_xdebug.sh /tmp/
 COPY ./docker/dev/xdebug-${XDEBUG_CONFIG}.ini /tmp/xdebug.ini
-RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
+RUN if [ "$ENV" = "dev" ] || [ "$ENV" = "test" ]; then \
+        install-php-extensions xdebug-${XDEBUG_VERSION} && \
+        mv /tmp/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini; \
+    else \
+        rm /tmp/xdebug.ini; \
+    fi
 
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

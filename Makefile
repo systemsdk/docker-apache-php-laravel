@@ -3,7 +3,7 @@ export WEB_PORT_HTTP=80
 export WEB_PORT_SSL=443
 export XDEBUG_CONFIG=main
 export XDEBUG_VERSION=3.5.0
-export MYSQL_VERSION=8.4.7
+export MYSQL_VERSION=8.4.8
 export INNODB_USE_NATIVE_AIO=1
 export SQL_MODE=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 export MYSQL_ROOT_PASSWORD=secret
@@ -326,7 +326,7 @@ else
 endif
 
 phpmd: ## Runs php mess detector
-	@make exec cmd="php ./vendor/bin/phpmd app,tests text phpmd_ruleset.xml --suffixes php"
+	@make exec cmd="php ./vendor/bin/phpmd analyze --format=text --ruleset=phpmd_ruleset.xml --suffixes=php app tests"
 
 phpstan: ## Runs PhpStan static analysis tool
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)

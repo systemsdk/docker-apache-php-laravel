@@ -2,18 +2,18 @@
 	"name": "systemsdk/docker-apache-php-laravel-tools",
 	"description": "",
 	"require": {
-		"php": "^8.4.0"
+		"php": "^8.5.0"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2.48",
+		"ergebnis/composer-normalize": "^2.50",
 		"icanhazstring/composer-unused": "^0.9",
-		"maglnet/composer-require-checker": "^4.19",
+		"maglnet/composer-require-checker": "^4.24",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"allow-plugins": true,
 		"platform": {
-			"php": "8.4.0"
+			"php": "8.5.0"
 		},
 		"preferred-install": {
 			"*": "dist"

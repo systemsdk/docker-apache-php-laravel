@@ -20,9 +20,9 @@ Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
 1. Apache 2.4
-2. PHP 8.4 (Apache handler)
+2. PHP 8.5 (Apache handler)
 3. MySQL 8
-4. Laravel 12
+4. Laravel 13
 5. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker Engine with Docker Compose

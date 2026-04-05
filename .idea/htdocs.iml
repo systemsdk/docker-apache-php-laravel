@@ -25,6 +25,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tools/10_phpcpd/vendor/systemsdk/phpcpd/src" isTestSource="true" packagePrefix="Systemsdk\PhpCPD\" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tools/06_phpmd/vendor/phpmd/phpmd/bin" isTestSource="true" packagePrefix="PHPMD\" />
+      <sourceFolder url="file://$MODULE_DIR$/tools/08_rector/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/nikic/php-parser" />
@@ -137,7 +138,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php84" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php85" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-uuid" />
@@ -153,6 +153,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/bootstrap/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/mysql-data" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
